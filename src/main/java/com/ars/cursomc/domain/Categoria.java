@@ -1,4 +1,4 @@
-package com.ars.cursomc.dominio;
+package com.ars.cursomc.domain;
 
 import java.io.Serializable;
 
