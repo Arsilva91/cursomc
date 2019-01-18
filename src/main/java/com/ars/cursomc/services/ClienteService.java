@@ -1,6 +1,5 @@
 package com.ars.cursomc.services;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,7 +59,7 @@ public class ClienteService {
 			repo.deleteById(id);
 		}
 		catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityExcepetion("Não é possível excluir porque há entidades relacionadas.");
+			throw new DataIntegrityExcepetion("Não é possível excluir porque há pedidos relacionadas.");
 		}		
 	}
 	
