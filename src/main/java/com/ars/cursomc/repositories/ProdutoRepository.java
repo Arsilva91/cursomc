@@ -22,7 +22,7 @@ public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
 	 */
 	
 	// link com padrão de nome para consulta
-	// https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
+	// https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods 
 	@Transactional(readOnly=true)
 	Page<Produto> findDistinctByNomeContainingAndCategoriasIn(String nome, List<Categoria> categorias, Pageable pageRequest);
 }
