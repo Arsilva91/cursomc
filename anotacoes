@@ -1,0 +1,115 @@
+próxima aula
+ultima aula da sessão 3
+
+===========================================================================
+1º atualização - FindById 
+
+Aula 14
+
+public Categoria find(Integer id) {
+    Categoria obj = repo.findOne(id);
+    return obj;
+}
+
+para
+troque o import
+
+import java.util.Optional
+
+public Categoria find(Integer id) {
+    Optional<Categoria> obj = repo.findById(id);
+    return obj.orElse(null);
+}
+
+
+===========================================================================
+2º atualização - Salvar todos
+
+Aula 15
+categoriaRepository.save(Array.asList(cat1, cat2));
+
+para
+
+categoriaRepository.saveAll(Array.asList(cat1, cat2));
+
+===========================================================================
+3º atualização - recuperar pelo id
+
+DE:
+    public Categoria buscar(Integer id) {
+        Optional<Categoria> obj = repo.findOneId(id);
+        if(obj == null) {
+            throw new ObjectNotFoundExcepetion("Objeto não encontrado! id: " + id
+                                                + ", Tipo: " + Categoria.class.getName());
+        }
+        return obj.orElse(null);
+    }
+
+PARA:
+
+public Categoria find(Integer id) {
+    Optional<Categoria> obj = repo.findById(id);
+    return obj.orElseThrow(() -> new ObjectNotFoundExcepetion("Objeto não encontrado! id: " + id
+                                                + ", Tipo: " + Categoria.class.getName()));
+}
+
+===========================================================================
+4º atualização - deleteById
+
+repo.delete(id);
+
+para
+
+repo.deleteById(id);
+
+seção 3 aula 33
+
+===========================================================================
+5º atualização - PageRequest
+
+PageRequest pageRequest = new  PageRequest();
+
+para
+
+PageRequest pageRequest = PageRequest.of(page, linesPerPages, Direction.valueOf(direction), orderBy);
+
+seção 3 aula 35
+
+===========================================================================
+6º atualização - import validation
+
+para
+
+import javax.validation.constraints.NotEmpty
+
+Seção 3 aula 36
+
+===========================================================================
+7º atualização - import hibernate
+
+para
+
+import javax.validation.constraints.NotEmpty
+import javax.validation.constraints.Email
+
+Seção 3 aula 38
+===========================================================================
+8º atualização - utilizar o import:
+
+import org.springframework.transaction.annotation.Transactional
+Usar o @Transactional no método insert
+
+Não é necessário usar cidadeRepository no método fromDTO
+
+Seção 3 aula 40
+
+===========================================================================
+9º atualização - findAll:
+
+De:
+categoriaRepository.findAll(ids);
+
+Para:
+categoriaRepository.findAllById(ids);
+
+Seção 3 aula 47
